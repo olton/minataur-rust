@@ -1,5 +1,6 @@
 use actix_web::{web, App, HttpServer, Responder};
 use actix_web::middleware::Logger;
+use actix_files::{Files, NamedFile};
 use futures_util::StreamExt;
 use sqlx::postgres::{ PgPool, PgPoolOptions };
 use tera::{Tera, Context};
@@ -30,7 +31,7 @@ pub struct AppState {
 async fn main() -> std::io::Result<()> {
     let config = AppConfig::from_file("Config.toml").expect("Failed to load configuration");
     let server_address = format!("{}:{}", config.server.address, config.server.port);
-    let tera = Tera::new("src/Templates/**/*").unwrap();
+    let tera = Tera::new("templates/**/*").unwrap();
 
     let db_pool = PgPoolOptions::new()
         .max_connections(10)
@@ -48,6 +49,7 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .app_data(web::Data::new(app_state.clone()))
             .wrap(Logger::default())
+            .service(Files::new("/static", "./static").show_files_listing())
             .route("/", web::get().to(index))
             .route("/ws/", web::get().to(ws))
             .service(
@@ -55,14 +57,6 @@ async fn main() -> std::io::Result<()> {
                     .route("/mina/version", web::get().to(api::mina_version))
             )
             .default_service(web::get().to(not_found))
-
-
-            // .app_data(web::Data::new(app_state.clone()))
-            // .wrap(Logger::default())
-            // .route("/", web::get().to(index))
-            // .web::scope()
-            // .route("/ws/", web::get().to(ws))
-            // .default_service(web::get().to(not_found))
     })
         .bind(server_address)?
         .run()
