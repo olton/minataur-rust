@@ -1,5 +1,4 @@
-use std::error::Error;
-use actix_web::{web, HttpResponse, Responder};
+use actix_web::{web, HttpResponse};
 use crate::AppState;
 use crate::constants::{API_FORMAT, API_NAME, API_URL, API_VERSION};
 use crate::models::MinaVersion;

@@ -1,0 +1,37 @@
+:root {
+    --border-radius: 6px;
+    --primary-color: #7700b3;
+    --progress-bar-color: #4ba228;
+    --progress-bar-radius: 6px;
+    --account-balance-color: #7700b3;
+}
+
+.dark-side {
+    --progress-bar-color: #94ff6a;
+    --account-balance-color: #94ff6a;
+
+    .apexcharts-canvas {
+        svg {
+            text {
+                fill: var(--default-color);
+            }
+        }
+    }
+    .apexcharts-gridlines-vertical,
+    .apexcharts-gridlines-horizontal,
+    .apexcharts-grid-borders {
+        line {
+            stroke: var(--border-color)!important;
+        }
+    }
+}
+
+.apexcharts-tooltip.apexcharts-theme-light {
+    border: 1px solid var(--border-color)!important;
+    background: var(--default-background)!important;
+}
+
+.apexcharts-tooltip.apexcharts-theme-light .apexcharts-tooltip-title {
+    background: var(--default-background)!important;
+    border-bottom: 1px solid var(--border-color)!important;
+}

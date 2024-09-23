@@ -1,17 +1,448 @@
 :root {
-    --color-primary: #007bff;
-    --color-secondary: #6c757d;
-    --color-success: #28a745;
-    --color-danger: #dc3545;
-    --color-warning: #ffc107;
-    --color-info: #17a2b8;
-    --color-light: #f8f9fa;
-    --color-dark: #343a40;
-    --color-white: #fff;
-    --color-black: #000;
 }
 
 body {
-    background: var(--color-primary);
-    color: var(--color-white);
+    padding: 50px 0 0 0!important;
+}
+
+.mina-image-dark { display: block; }
+.mina-image-light { display: none; }
+
+.dark-side {
+    .mina-image-dark { display: none; }
+    .mina-image-light { display: block; }
+}
+
+a.link {
+    color: var(--color-link);
+    font-weight: normal;
+    text-decoration: none;
+
+    &:hover {
+        color: var(--color-link);
+        text-decoration: underline;
+    }
+}
+
+.minataur-toast {
+    background: var(--primary-color)!important;
+}
+
+.data-table {
+    line-height: 1.15!important;
+    font-size: 13px;
+    td {
+        padding: 4px 8px!important;
+    }
+}
+
+.monospace {
+    font-family: monospace;
+}
+
+.panel {
+    .panel-title {
+        font-size: 12px;
+    }
+}
+
+.icon-box {
+    height: 92px;
+}
+
+.scroll-table-container {
+    overflow-x: auto;
+}
+
+.mif-copy {
+    opacity: .6;
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.flip {
+    transform: scaleX(-1);
+}
+
+.table.row-hover .tbody .tr:hover, .table.row-hover .tbody tr:hover, .table.row-hover tbody .tr:hover, .table.row-hover tbody tr:hover {
+    background-color: rgba(119,0,179,.1);
+}
+
+.table {
+    [class*=box-value] {
+        margin: 0;
+    }
+}
+
+.bg-ad {
+    background: var(--default-background);
+}
+
+.adv-label {
+    display: block;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    font-size: 10px;
+}
+
+.adv-banner {
+    border: 1px solid var(--border-color);
+    padding: 4px 8px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.app-bar .app-bar-menu.opened {
+//height: ~"calc(100vh - 52px)";
+}
+
+body {
+    display: flex;
+    flex-flow: column;
+    padding-top: 52px;
+    opacity: 0;
+}
+
+.hero {
+    padding: 60px 0;
+}
+
+#dispute-block-participants,
+#canonical-chain-length {
+    font-weight: bold;
+}
+
+.box-value, .box-value2, .box-value3, .box-value4 {
+    font-weight: 600;
+    font-size: 18px;
+    white-space: nowrap;
+    margin-top: 10px;
+    display: flex;
+    align-items: end;
+    flex-flow: row nowrap;
+    line-height: 1;
+    font-family: monospace;
+}
+
+.box-value2 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-top: 0;
+}
+
+.box-value3 {
+    position: absolute;
+    top: 0;
+    right: 8px;
+}
+
+.box-value4 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+#current-slot {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    font-size: 24px;
+    color: var(--color-alert);
+    z-index: 1;
+}
+
+.epoch-number-container {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    border-bottom: 1px solid var(--border-color);
+
+    #current-epoch-number {
+        font-size: 36px;
+    }
+}
+
+#account-balance {
+    color: var(--account-balance-color);
+}
+
+#account-balance-locked {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+#mina-rate {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 8px 4px;
+}
+
+#price-chart-sparkle {
+    position: absolute;
+    top: 20px;
+    right: 4px;
+    height: 30px;
+    width: 100px;
+    padding: 4px 8px;
+    border: 1px solid var(--border-color);
+}
+
+.analytic-tile {
+    display: block;
+    position: relative;
+    border: 1px solid var(--border-color);
+    padding: 10px;
+    min-height: 236px;
+
+    .header {
+        font-size: 20px;
+        font-weight: 100;
+    }
+
+    .counter {
+        z-index: 2;
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 4px 8px;
+        font-weight: bold;
+        font-size: 24px;
+        border-left: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
+    }
+}
+
+.radius {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.icon-box {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+}
+
+.page-icon {
+    font-size: 48px;
+    margin-right: 1rem;
+    color: #ccc;
+}
+
+.is_thief {
+    outline: 4px red solid;
+}
+
+.is_scammer {
+    outline: 4px orange solid;
+}
+
+#alert-block, #logo-block {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 4px solid darkred;
+    background: red;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    padding: 20px;
+}
+
+#logo-block {
+    background: #fff;
+    border-color: var(--border-color);
+    border-radius: 50%;
+    width: 128px;
+    height: 128px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    opacity: 1;
+    transition: opacity 0.4s;
+}
+
+#whois-block:hover #logo-block {
+    opacity: .1;
+}
+
+.addr-logo-small {
+    max-height: 28px;
+    width: 28px;
+    font-size: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    color: #e6e6e6;
+}
+
+.dark-side .addr-logo-small {
+    color: #3c3f45;
+}
+
+.live {
+    position: relative;
+    color: white;
+    overflow: hidden;
+    text-transform: uppercase;
+    padding: 4px 8px;
+    text-align: center;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    z-index: 200000;
+    background: #1ac51a;
+    border-radius: 6px;
+
+    &.alert {
+        background: #ff1841;
+    }
+}
+
+footer {
+    background-color: #262626;
+    color: #909090;
+    margin-top: auto;
+    width: 100%;
+    font-size: 12px;
+    padding: 10px 0;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+footer a {
+    color: #909090!important;
+    text-decoration: none!important;
+}
+
+footer a:hover {
+    color: #c9c9c9!important;
+}
+
+#social-menu li {
+    margin: 0 20px;
+}
+
+#footer-menu li {
+    margin: 0 20px;
+}
+
+.fg-default {
+    color: var(--default-color)!important;
+}
+
+.bg-default {
+    background: var(--default-background)!important;
+}
+
+.hero {
+    padding: 40px;
+}
+
+.local-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+    background: var(--default-background);
+    &.active {
+        display: flex;
+    }
+}
+
+:root {
+    --slot-highlight: #d536e7;
+}
+
+.dark-side {
+    --slot-highlight: #ffe67a;
+}
+
+.distribution-blocks-grid {
+    --slot-size: calc(100% / 84);
+    display: flex;
+    gap: 2px;
+    flex-flow: row wrap;
+
+    .slot {
+        display: block;
+        border: 1px solid var(--border-color);
+        border-radius: 2px;
+        background:var(--default-background);
+        cursor: pointer;
+        width: 10px;
+        height: 10px;
+
+        &.with-block {
+            background-color: #1ac51a;
+        }
+
+        &.current {
+            background-color: #0ca9f2;
+        }
+
+        &:hover {
+            background: #2b770d;
+        }
+
+        &.highlight {
+            background-color: var(--slot-highlight)!important;
+        }
+
+        &.dimmed {
+            opacity: .5;
+        }
+    }
+}
+
+#loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--default-background);
+    color: var(--default-color);
+    padding: 10px 20px;
+    border: 1px solid var(--border-color);
+    font-size: 14px;
+    z-index: 1000;
+    border-radius: 6px;
+}
+
+@media screen and (min-width: 768px){
+    .container-fluid {
+        padding: 0 20px;
+    }
+    .epoch-number-container {
+    //border-right: 1px solid var(--border-color);
+        border-bottom: none;
+    }
+}
+
+#app-title {
+    display: none;
+
+    @media (min-width: 768px) {
+        display: inline;
+    }
 }

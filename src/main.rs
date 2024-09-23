@@ -1,9 +1,8 @@
-use actix_web::{web, App, HttpServer, Responder};
+use actix_web::{web, App, HttpServer};
 use actix_web::middleware::Logger;
-use actix_files::{Files, NamedFile};
-use futures_util::StreamExt;
+use actix_files::{Files};
 use sqlx::postgres::{ PgPool, PgPoolOptions };
-use tera::{Tera, Context};
+use tera::{Tera};
 
 mod routes;
 mod api;
@@ -13,6 +12,7 @@ mod models;
 mod responses;
 mod websocket;
 mod payload;
+mod render;
 
 use routes::index;
 use routes::not_found;
