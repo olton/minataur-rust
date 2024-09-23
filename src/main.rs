@@ -1,4 +1,4 @@
-use actix_web::{web, App, HttpServer};
+use actix_web::{get, web, App, HttpServer};
 use actix_web::middleware::Logger;
 use actix_files::{Files};
 use sqlx::postgres::{ PgPool, PgPoolOptions };
@@ -31,7 +31,7 @@ pub struct AppState {
 async fn main() -> std::io::Result<()> {
     let config = AppConfig::from_file("Config.toml").expect("Failed to load configuration");
     let server_address = format!("{}:{}", config.server.address, config.server.port);
-    let tera = Tera::new("templates/**/*").unwrap();
+    let tera = Tera::new("html/**/*").unwrap();
 
     let db_pool = PgPoolOptions::new()
         .max_connections(10)

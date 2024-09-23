@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Minataur - The fastest blockchain explorer for Mina Protocol">
+
+    <link rel="stylesheet" href="//cdn.metroui.org.ua/dev/metro.css"/>
+    <link rel="stylesheet" href="//cdn.metroui.org.ua/dev/icons.css"/>
+    <link rel="stylesheet" href="/static/css/index.css"/>
+    <link rel="stylesheet" href="/static/css/theme.css"/>
+
+    <link rel="icon" href="/static/images/bull.png" type='image/x-icon'>
+
+    <title>{% block title %}{% endblock title %}</title>
+</head>
+<body class="cloak">
+{% include "components/appbar.html" ignore missing %}
+
+<main>
+    <div class="container-fluid mt-6">
+        <div class="row">
+            <div class="cell-lg-8 d-none-fs d-block-md">
+                {% block hero %}{% endblock hero %}
+            </div>
+            <div class="cell-lg-4 d-flex flex-align-center">
+                {% include "components/search.html" ignore missing %}
+            </div>
+        </div>
+    </div>
+
+    {% block content %}{% endblock content %}
+    {% block footer %}{% endblock footer %}
+</main>
+
+{% include "components/footer.html" ignore missing %}
+{% include "components/scripts.html" ignore missing %}
+</body>
+</html>
