@@ -1,4 +1,4 @@
-# Minataur
+# Minataur (in development...)
 
 The fastest Mina blockchain explorer built with Rust.
 
