@@ -1,0 +1,88 @@
+<nav data-role="app-bar" data-expand-point="xl" class="border-bottom bd-default">
+    <span class="no-wrap brand app-bar-item-static">
+        <a href="/" class="app-bar-item-static no-decor">
+            <img src="/static/images/bull.webp" height="32" alt="Logo" />
+            <span class="text-bold">MINA</span>
+            <span class="text-light">TAUR</span>
+        </a>
+        <span>{{ pageTitle }}</span>
+    </span>
+
+  <ul class="app-bar-menu ml-auto">
+    <li><a href="/">Home</a></li>
+    <li>
+      <a class="dropdown-toggle" href="/">Blockchain</a>
+      <ul class="d-menu" data-role="dropdown">
+        <li><a href="/blocks"><span class="mif-apps icon"></span>Blocks</a></li>
+        <li class="divider"></li>
+        <li><a href="/accounts"><span class="mif-users icon"></span>Accounts</a></li>
+        <li class="divider"></li>
+        <li><a href="/"><span class="mif-settings_input_antenna icon"></span>User transactions</a></li>
+        <li><a href="/"><span class="mif-broadcast icon"></span>User transactions Pool</a></li>
+        <li class="divider"></li>
+        <li><a href="/"><span class="mif-brackets-hexagon icon"></span>zkApps Transactions</a></li>
+        <li class="disabled"><a href="/"><span class="mif-air icon"></span>zkApps Pool</a></li>
+        <li class="divider"></li>
+        <li class="disabled"><a href="/"><span class="mif-code icon"></span>Internal Commands</a></li>
+        <li><a href="/"><span class="mif-military_tech icon"></span>Coinbase Rewards</a></li>
+        <li class="divider"></li>
+        <li class="disabled"><a href="/"><span class="mif-spell-check icon"></span>Check Payment Status</a></li>
+      </ul>
+    </li>
+    <li>
+      <a class="dropdown-toggle" href="/">Analytics</a>
+      <ul class="d-menu" data-role="dropdown">
+        <li><a href="/blocks"><span class="mif-user-secret icon"></span>Block Producers</a></li>
+        <li class="divider"></li>
+        <li><a href="/accounts"><span class="mif-apps icon"></span>Blocks Distribution</a></li>
+        <li><a href="/accounts"><span class="mif-calendar icon"></span>Data by Epoch</a></li>
+        <li><a href="/accounts"><span class="mif-settings_input_antenna icon"></span>Transactions</a></li>
+        <li><a href="/accounts"><span class="mif-brackets-hexagon icon"></span>zkApps</a></li>
+        <li class="divider"></li>
+        <li><a href="/"><span class="mif-books icon"></span>Ledgers</a></li>
+        <li class="divider"></li>
+        <li><a href="/"><span class="mif-dollar icon"></span>Mina Price</a></li>
+      </ul>
+    </li>
+    <li>
+      <a class="dropdown-toggle" href="/">Network</a>
+      <ul class="d-menu" data-role="dropdown">
+        <li><a href="/blocks"><span class="mif-metro icon"></span>Daemon Status</a></li>
+        <li class="divider"></li>
+        <li><a href="/accounts"><span class="mif-rule icon"></span>Network Config</a></li>
+        <li><a href="/accounts"><span class="mif-record_voice_over1 icon"></span>Peers</a></li>
+        <li><a href="/accounts"><span class="mif-camera-front icon"></span>Seeds</a></li>
+        <li class="divider"></li>
+        <li><a href="/accounts"><span class="mif-chart-line icon"></span>Uptime</a></li>
+      </ul>
+    </li>
+    <li>
+      <a class="dropdown-toggle" href="/">API</a>
+      <ul class="d-menu" data-role="dropdown">
+        <li><a href="/blocks"><span class="mif-codescan icon"></span>RESTful API</a></li>
+        <li class="disabled"><a href="/blocks"><span class="mif-graphql icon"></span>GraphQL API</a></li>
+        <li class="divider"></li>
+        <li><a href="/accounts"><span class="mif-earth2 icon"></span>Whois Service</a></li>
+      </ul>
+    </li>
+    <li>
+      <a class="dropdown-toggle" href="/">Tools</a>
+      <ul class="d-menu" data-role="dropdown">
+        <li><a href="/blocks"><span class="mif-calculator2 icon"></span>Profit Calculator</a></li>
+        <li class="divider"></li>
+        <li><a href="/accounts"><span class="mif-lan icon"></span>Post Checker</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <div class="app-bar-item-static">
+    <input type="checkbox" data-role="theme-switcher" />
+  </div>
+
+  <div class="app-bar-item-static">
+        <span class="live">
+            <span class="reduce-2">Live</span>
+            <span class="mif-feed ml-1"></span>
+        </span>
+  </div>
+</nav>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% block head %}
+    <link rel="stylesheet" href="//cdn.metroui.org.ua/dev/metro.css"/>
+    <link rel="stylesheet" href="//cdn.metroui.org.ua/dev/icons.css"/>
+    <link rel="stylesheet" href="/static/css/index.css"/>
+    <link rel="stylesheet" href="/static/css/theme.css"/>
+    <title>{% block title %}{% endblock title %}</title>
+    {% endblock head %}
+</head>
+<body class="cloak">
+{% include "components/appbar.html" ignore missing %}
+
+<main>{% block content %}{% endblock content %}</main>
+
+{% include "components/footer.html" ignore missing %}
+{% include "components/scripts.html" ignore missing %}
+</body>
+</html>

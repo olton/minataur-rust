@@ -5,7 +5,7 @@ use crate::render::render_page;
 
 pub async fn index(app_state: web::Data<AppState>) -> HttpResponse {
     let mut ctx = Context::new();
-    // ctx.insert("title", "Hello, Pug!");
+    ctx.insert("pageTitle", "Explorer for Mina Protocol!");
 
     render_page("index.html", &ctx, &app_state.tera)
 }
