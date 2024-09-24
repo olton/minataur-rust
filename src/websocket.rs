@@ -4,7 +4,7 @@ use futures_util::StreamExt;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use crate::AppState;
-use crate::models::{DaemonStatusResult, MinaVersionResult};
+use crate::models::{DaemonStatusResult, MinaVersionResult, RuntimeConfigResult};
 
 #[derive(Deserialize, Serialize)]
 pub struct WebsocketMessage {
@@ -43,9 +43,13 @@ pub async fn ws(req: HttpRequest, body: web::Payload, app_state: web::Data<AppSt
                             let mina_version = MinaVersionResult::get(&app_state.config.mina.graphql_url).await;
                             let _ = session.text(create_response(&channel, mina_version)).await;
                         }
-                        "daemon_status" => {
+                        "daemon" => {
                             let daemon_status = DaemonStatusResult::get(&app_state.config.mina.graphql_url).await;
                             let _ = session.text(create_response(&channel, daemon_status)).await;
+                        }
+                        "runtime" => {
+                            let runtime_config = RuntimeConfigResult::get(&app_state.config.mina.graphql_url).await;
+                            let _ = session.text(create_response(&channel, runtime_config)).await;
                         }
                         _ => {
                             let _ = session.text(create_response(&channel, "Invalid channel")).await;

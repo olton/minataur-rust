@@ -1,5 +1,5 @@
 use serde::{Deserialize, Serialize};
-use crate::graphql_client::graphql_request;
+use crate::graphql::request;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct DaemonStatusResult {
@@ -89,7 +89,7 @@ impl DaemonStatusResult {
               }
             }"#;
 
-        let res = graphql_request(graphql_url, query).await;
+        let res = request(graphql_url, query).await;
 
         let version = res["data"]["version"].as_str().unwrap().to_string();
         let status = serde_json::from_value(res["data"]["daemonStatus"].clone()).unwrap();

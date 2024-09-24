@@ -13,7 +13,7 @@ mod responses;
 mod websocket;
 mod payload;
 mod render;
-mod graphql_client;
+mod graphql;
 
 use config::AppConfig;
 
