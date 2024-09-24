@@ -4,13 +4,13 @@
 {% block hero %}
 <div class="d-flex flex-align-center">
     <a href="https://minaprotocol.com" class="mt-1 mr-2 d-flex flex-align-center no-decor">
-        <img src="/static/images/bull.webp" alt="Logo" height="72"/>
+        <img src="/images/bull.webp" alt="Logo" height="72"/>
         <div class="mt-2">
             <div class="mina-image-dark">
-                <img src="/static/images/mina.svg" alt="" height="23" class="mb-1">
+                <img src="/images/mina.svg" alt="" height="23" class="mb-1">
             </div>
             <div class="mina-image-light">
-                <img src="/static/images/mina-light.svg" alt="" height="23" class="mb-1">
+                <img src="/images/mina-light.svg" alt="" height="23" class="mb-1">
             </div>
         </div>
         <div class="enlarge-9 fg-red">TAUR</div>
@@ -31,4 +31,52 @@
 {% endblock hero %}
 
 {% block content %}
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="cell-lg-4 cell-sm-6">
+            <div class="data-tile">
+                <div class="caption">Mina Version</div>
+                <div class="box-value2">
+                    <span id="mina-version">4e62fc2...88bf4ff</span>
+                    <span class="ml-auto reduce-2 text-muted" id="network">mina:mainnet</span>
+                </div>
+            </div>
+        </div>
+        <div class="cell-lg-3 cell-sm-6">
+            <div class="data-tile">
+                <div class="caption">Genesis Timestamp</div>
+                <div class="box-value2" id="genesis-timestamp">05, Jun 2024 03:00</div>
+            </div>
+        </div>
+        <div class="cell-lg-3 cell-sm-6">
+            <div class="data-tile">
+                <div class="caption">Hard Fork BLock</div>
+                <div class="box-value2">
+                    <span id="hard-fork-block-height">359 605</span>
+                    <span class="ml-auto reduce-2 text-muted" id="hard-fork-block-timestamp">05, Jun 2024 03:00</span>
+                </div>
+            </div>
+        </div>
+        <div class="cell-lg-2 cell-sm-6">
+            <div class="data-tile">
+                <div class="caption">Block Reward</div>
+                <div class="box-value2">
+                    <span id="coinbase">720</span>
+                    <span class="ml-auto reduce-2 text-muted">mina</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-4">
+    <div class="row">
+
+    </div>
+</div>
 {% endblock content %}
+{% block userscripts %}
+<script src="/js/index/index.js"></script>
+<script src="/js/index/charts.js"></script>
+<script src="/js/index/wsc.js"></script>
+{% endblock userscripts %}

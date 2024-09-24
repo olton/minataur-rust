@@ -13,12 +13,10 @@ mod responses;
 mod websocket;
 mod payload;
 mod render;
+mod graphql_client;
 
-use routes::index;
-use routes::not_found;
 use config::AppConfig;
 
-use websocket::ws;
 
 #[derive(Clone, Debug)]
 pub struct AppState {
@@ -31,7 +29,7 @@ pub struct AppState {
 async fn main() -> std::io::Result<()> {
     let config = AppConfig::from_file("Config.toml").expect("Failed to load configuration");
     let server_address = format!("{}:{}", config.server.address, config.server.port);
-    let tera = Tera::new("html/**/*").unwrap();
+    let tera = Tera::new("html/**/*.html").unwrap();
 
     let db_pool = PgPoolOptions::new()
         .max_connections(10)
@@ -49,14 +47,17 @@ async fn main() -> std::io::Result<()> {
         App::new()
             .app_data(web::Data::new(app_state.clone()))
             .wrap(Logger::default())
-            .service(Files::new("/static", "./static").show_files_listing())
-            .route("/", web::get().to(index))
-            .route("/ws/", web::get().to(ws))
+            .service(Files::new("/images", "./html/images").show_files_listing())
+            .service(Files::new("/css", "./html/css").show_files_listing())
+            .service(Files::new("/js", "./html/js").show_files_listing())
+            .route("/", web::get().to(routes::index))
+            .route("/ws/", web::get().to(websocket::ws))
             .service(
                 web::scope("/api/v2")
                     .route("/mina/version", web::get().to(api::mina_version))
+                    .default_service(web::get().to(api::not_found))
             )
-            .default_service(web::get().to(not_found))
+            .default_service(web::get().to(routes::not_found))
     })
         .bind(server_address)?
         .run()

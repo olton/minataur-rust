@@ -1,7 +1,8 @@
 use serde::{Deserialize, Serialize};
-use crate::models::MinaVersion;
+use crate::models::MinaVersionResult;
 
 #[derive(Debug, Serialize, Deserialize)]
 pub enum PayloadType {
-    MinaVersion(MinaVersion),
+    MethodNotAllowed(String),
+    MinaVersion(MinaVersionResult),
 }

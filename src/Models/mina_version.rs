@@ -1,12 +1,13 @@
 use serde::{Deserialize, Serialize};
+use crate::graphql_client::graphql_request;
 
 #[derive(Debug, Serialize, Deserialize)]
-pub struct MinaVersion {
-    pub version: Option<String>,
-    pub network: Option<String>,
+pub struct MinaVersionResult {
+    pub version: String,
+    pub network: String,
 }
 
-impl MinaVersion {
+impl MinaVersionResult {
     pub async fn get(graphql_url: &str) -> Self {
         let query = r#"
             query MinaVersion {
@@ -14,22 +15,14 @@ impl MinaVersion {
                 networkID
             }"#;
 
-        let client = reqwest::Client::new();
-        let res = client.post(graphql_url)
-            .json(&serde_json::json!({ "query": query }))
-            .send()
-            .await
-            .unwrap()
-            .json::<serde_json::Value>()
-            .await
-            .unwrap();
+        let res = graphql_request(graphql_url, query).await;
 
-        let version = res["data"]["version"].as_str().map(|s| s.to_string());
-        let network = res["data"]["networkID"].as_str().map(|s| s.to_string());
+        let version = res["data"]["version"].as_str();
+        let network = res["data"]["networkID"].as_str();
 
         Self {
-            version,
-            network,
+            version: version.unwrap().to_string(),
+            network: network.unwrap().to_string(),
         }
     }
 }
